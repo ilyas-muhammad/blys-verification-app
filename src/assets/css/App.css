@@ -1,0 +1,89 @@
+.App {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.number-only {
+    position: absolute;
+    top: 55vh;
+    right: 49vw;
+    font-size: 0.5em;
+    color: red;
+}
+
+h3 {
+    position: absolute;
+    top: 35vh;
+    right: 43.5vw;
+    font-size: 1em;
+    color: rgb(29, 24, 24);
+}
+
+.submit {
+    position: absolute;
+    top: 60vh;
+    right: 41.5vw;
+    width: 17vw;
+    height: 3vh;
+    color: whitesmoke;
+    background-color: rgb(20, 102, 243);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+  
+.wrap {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    position: relative;
+    display: flex;
+}
+
+.input {
+    position: absolute;
+    border: none;
+    font-size: 32px;
+    text-align: center;
+    background-color: transparent;
+    outline: none;
+}
+.display {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    width: 32px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    position: relative;
+}
+.display:last-child {
+    border-right: none;
+}
+
+.shadows {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    box-shadow: 0 0 0 4px rgba(58, 151, 212, 0.28);
+}
+
+.highlighted {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    box-shadow: 0 0 0 4px rgba(212, 58, 58, 0.28);
+}
+
+@media only screen and (max-width: 600px) {
+    h3 {
+        position: absolute;
+        right: 27.5vw;
+    }
+}
