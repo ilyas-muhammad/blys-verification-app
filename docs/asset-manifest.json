@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1c867344.chunk.css",
+    "main.js": "/static/js/main.e2c773af.chunk.js",
+    "main.js.map": "/static/js/main.e2c773af.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.74c85e6f.js",
+    "runtime-main.js.map": "/static/js/runtime-main.74c85e6f.js.map",
+    "static/js/2.9587b0e0.chunk.js": "/static/js/2.9587b0e0.chunk.js",
+    "static/js/2.9587b0e0.chunk.js.map": "/static/js/2.9587b0e0.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.1c867344.chunk.css.map": "/static/css/main.1c867344.chunk.css.map",
+    "static/js/2.9587b0e0.chunk.js.LICENSE.txt": "/static/js/2.9587b0e0.chunk.js.LICENSE.txt",
+    "static/media/blys-logo.290dc750.png": "/static/media/blys-logo.290dc750.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.74c85e6f.js",
+    "static/js/2.9587b0e0.chunk.js",
+    "static/css/main.1c867344.chunk.css",
+    "static/js/main.e2c773af.chunk.js"
+  ]
+}
