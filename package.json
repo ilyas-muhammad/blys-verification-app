@@ -5,14 +5,18 @@
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.0",
+    "axios": "^0.21.0",
     "cra-template": "1.1.0",
+    "dotenv": "^8.2.0",
     "jquery": "^3.5.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-scripts": "4.0.0"
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.0",
+    "sweetalert": "^2.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start --env",
     "build": "react-scripts build",
     "test": "react-scripts test"
   },

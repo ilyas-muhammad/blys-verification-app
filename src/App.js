@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import swal from 'sweetalert';
 import './assets/css/App.css';
 
-const CODE_LENGTH = new Array(6).fill(0);
+const CODE_LENGTH_ALLOWED = new Array(6).fill(0);
 
 class App extends Component {
   input = React.createRef();
@@ -10,7 +12,6 @@ class App extends Component {
     focused: false,
     isValid: true,
     isShouldShowMessage: false,
-    allValue: [],
   };
 
   handleClick = () => {
@@ -59,9 +60,9 @@ class App extends Component {
     }
 
     this.setState(state => {
-      if (state.value.length >= CODE_LENGTH.length) return null;
+      if (state.value.length >= CODE_LENGTH_ALLOWED.length) return null;
       return {
-        value: (state.value + value).slice(0, CODE_LENGTH.length),
+        value: (state.value + value).slice(0, CODE_LENGTH_ALLOWED.length),
       };
     });
   };
@@ -70,12 +71,30 @@ class App extends Component {
     const values = this.state.value.split('');
 
     if (!values.length || values.length !== 6) {
-        this.setState({
-            isShouldShowMessage: true,
-            errorMessage: 'Should fill six digit code',
-        })
-        return false;
+      this.setState({
+          isShouldShowMessage: true,
+          errorMessage: 'Should fill six digit code',
+      });
+
+      return false;
     }
+
+    axios.post(`${process.env.REACT_APP_SERVER_URL}`, {
+      code: this.state.value,
+    }, { headers: {
+      'Content-Type': 'application/json',
+    }}).then((res) => {
+      if (!res.status || !res.data.status) {
+        swal('Error', 'Verification Error', 'error');
+        return true;
+      }
+
+      swal('Success', 'Verified', 'success').then(() => this.props.history.push('./success'));
+    }).catch((reason) => {
+      swal('Verification Error', `${reason.response.data.message || 'Error'}`, 'error');
+
+      return false;
+    });
   }
   render() {
     const {
@@ -89,9 +108,9 @@ class App extends Component {
     const values = value.split('');
     
     const selectedIndex =
-      values.length < CODE_LENGTH.length ? values.length : CODE_LENGTH.length - 1;
+      values.length < CODE_LENGTH_ALLOWED.length ? values.length : CODE_LENGTH_ALLOWED.length - 1;
 
-    const hideInput = !(values.length < CODE_LENGTH.length);
+    const hideInput = !(values.length < CODE_LENGTH_ALLOWED.length);
 
     return (
       <div>
@@ -126,9 +145,9 @@ class App extends Component {
               outlineColor: 'red',
             }}
           />
-          {CODE_LENGTH.map((v, index) => {
+          {CODE_LENGTH_ALLOWED.map((v, index) => {
             const selected = values.length === index;
-            const filled = values.length === CODE_LENGTH.length && index === CODE_LENGTH.length - 1;
+            const filled = values.length === CODE_LENGTH_ALLOWED.length && index === CODE_LENGTH_ALLOWED.length - 1;
 
             return (
               <div className="display" key={index}>
