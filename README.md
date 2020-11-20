@@ -1,4 +1,4 @@
-# Blyss Verification APP
+# Blys Verification APP
 
 ## Install Package
 run `yarn install` to install the package

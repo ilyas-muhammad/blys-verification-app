@@ -97,7 +97,7 @@ class App extends Component {
       <div>
         <center>
         <h3>
-            Blyss Verification App
+            Blys Verification App
         </h3>
         </center>
         {
